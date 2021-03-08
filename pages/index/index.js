@@ -1,6 +1,7 @@
 // index.js
 // 获取应用实例
 const app = getApp()
+const { demo } = require('../../api/index/index')
 
 Page({
   data: {
@@ -16,6 +17,9 @@ Page({
     })
   },
   onLoad() {
+    demo({uuid: 12131313}).then(r => {
+      console.log(r)
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
